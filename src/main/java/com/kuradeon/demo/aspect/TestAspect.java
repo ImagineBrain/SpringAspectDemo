@@ -33,7 +33,15 @@ public class TestAspect {
     @Before("testPointcut()")
     public void beforeAdvice(JoinPoint joinPoint) {
         // 第②步，被切入方法执行前
-        System.out.println("你的参数是：" + joinPoint.getArgs()[0]);
+
+        Object[] ps = joinPoint.getArgs();
+        if (ps != null && ps.length > 0) {
+            System.out.print("你的参数是：");
+            for (Object p : ps) {
+                System.out.print(p + ",");
+            }
+            System.out.println();
+        }
     }
 
     /**

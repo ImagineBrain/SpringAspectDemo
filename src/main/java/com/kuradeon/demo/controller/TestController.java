@@ -18,4 +18,9 @@ public class TestController {
 //        throw new RuntimeException("错了");
         return str;
     }
+
+    @RequestMapping("/test2")
+    public String test2() {
+        return "test2";
+    }
 }
